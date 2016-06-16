@@ -3,8 +3,16 @@ const proxy = require('http-proxy');
 const app = express();
 const curl = require('curlrequest');
 const moment = require('moment');
+const Yelp = require('yelp');
 
 const secrets = require('../secrets.json');
+
+var yelp = new Yelp({
+    consumer_key: secrets.consumer_key,
+    consumer_secret: secrets.consumer_secret,
+    token: secrets.token,
+    token_secret: secrets.token_secret
+});
 
 const port = 3000;
 
@@ -24,14 +32,14 @@ router.use((req, res, next) => {
 });
 
 router.get('/api/restaurants', (req, res) => {
-    console.log('hi there!');
-    // api.web(req, res, {
-    //     target:
-    //     'http://api.openweathermap.org/data/2.5/weather?APPID={0}&units={1}&q={2}'
-    //         .replace('{0}', secrets.weatherKey)
-    //         .replace('{1}', config.units)
-    //         .replace('{2}', config.weather.city)
-    // });
+    yelp.search({ term: 'food', location: 'Montreal' })
+        .then(function (data) {
+            console.dir(data);
+            res.send(data);
+        })
+        .catch(function (err) {
+            console.error(err);
+        });
 });
 
 app.use('/', router);

@@ -13,6 +13,7 @@
     "curlrequest": "^0.5.7",
     "express": "^4.13.4",
     "http-proxy": "^1.13.2",
-    "moment": "*"
+    "moment": "2.13.0",
+    "yelp": "1.0.1"
   }
 }

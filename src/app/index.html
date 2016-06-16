@@ -22,7 +22,9 @@
 
   <div class="rando container-fluid">
     <div class="row" ng-controller="ctrl as controller">
-      
+      <div ng-repeat="restaurant in controller.restaurants">
+        <div>{{ restaurant.name }}</div>
+      </div>
     </div>
   </div>
 </body>
