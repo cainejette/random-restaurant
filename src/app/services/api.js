@@ -3,7 +3,6 @@ angular.module('rando').factory('api', ['$http', '$q', function ($http, $q) {
     const deferred = $q.defer();
     $http.get(url)
       .success(data => {
-        console.dir(data);
         deferred.resolve(data);
       })
       .error(err => {
