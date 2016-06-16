@@ -9,22 +9,50 @@ body {
   padding: 10px;
   background-color: black !important;
   font-family: 'Open Sans', sans-serif !important;
+  font-size: 4em;
 }
 
 h1 {
   font-size: 4em !important;
 }
 
+form {
+  margin: 0 auto;
+  display: block;
+  text-align: center;
+}
+
+#address {
+  color: black !important;
+  width: 300px;
+  padding: 20px 5px;
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 15px;
+}
+
 input {
   color: black !important;
+  width: 100px;
+  text-align: center;
 }
 
 a {
-    color: #428BCA;
+    color: white !important;
     text-decoration: none;
 }
 
 a:hover, a:focus {
-    color: #2A6496;
+    color: white !important;
     text-decoration: underline;
+}
+
+::-webkit-input-placeholder {
+   color: grey;
+}
+
+#result {
+  padding-top: 50px;
+  text-align: center;
+  font-size: 5em;
 }

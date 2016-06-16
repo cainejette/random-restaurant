@@ -42,7 +42,6 @@ router.post('/api/restaurants', (req, res) => {
             location: address,
             radius_filter: 1000 
         }).then(function (data) {
-            console.dir(data);
             res.send(data);
         }).catch(function (err) {
             console.error(err);
