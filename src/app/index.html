@@ -22,6 +22,10 @@
 
   <div class="rando container-fluid">
     <div class="row" ng-controller="ctrl">
+      <form name="myForm" ng-submit="submit()" >
+        <input name="input" ng-model="address" required>
+        <input type="submit" id="submit" value="Submit" />
+
       <div ng-repeat="restaurant in restaurants">
         <div>{{ restaurant.name }}</div>
       </div>

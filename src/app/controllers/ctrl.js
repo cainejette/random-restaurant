@@ -5,12 +5,14 @@ angular.module('rando').controller('ctrl',
         function ($scope, api) {
             $scope.restaurants = [];
 
-            const getRestaurants = () => {
-                api.getRestaurants().then(data => {
+            const getRestaurants = (address) => {
+                api.getRestaurants(address).then(data => {
                     $scope.restaurants = data.businesses;
                 });
             }
 
-            getRestaurants();
+            $scope.submit = () => {
+                getRestaurants($scope.address);
+            }
         }]
 )

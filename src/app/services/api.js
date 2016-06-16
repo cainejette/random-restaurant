@@ -1,10 +1,10 @@
 angular.module('rando').factory('api', ['$http', '$q', function ($http, $q) {
-  const getData = (url) => {
+
+  const getRestaurants = (address) => {
     const deferred = $q.defer();
-    $http.get(url)
-      .success(data => {
-        deferred.resolve(data);
-      })
+
+    $http.post('/api/restaurants/', {address: address})
+      .success(data => deferred.resolve(data))
       .error(err => {
         console.log('Error fetching from: ' + url);
         deferred.reject(err);
@@ -13,12 +13,7 @@ angular.module('rando').factory('api', ['$http', '$q', function ($http, $q) {
     return deferred.promise;
   }
 
-  const getRestaurants = () => {
-    return getData('/api/restaurants');
-  }
-
   return {
-    getData,
     getRestaurants
   };
 }]);

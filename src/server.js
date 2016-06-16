@@ -4,6 +4,8 @@ const app = express();
 const curl = require('curlrequest');
 const moment = require('moment');
 const Yelp = require('yelp');
+var bodyParser = require("body-parser");
+
 
 const secrets = require('../secrets.json');
 
@@ -18,6 +20,8 @@ const port = 3000;
 
 app.set('port', port);
 app.use(express.static(__dirname + '/app'));
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 proxy.prototype.onError = (err) => {
     console.log(err);
@@ -31,13 +35,16 @@ router.use((req, res, next) => {
     next();
 });
 
-router.get('/api/restaurants', (req, res) => {
-    yelp.search({ term: 'food', location: 'Montreal' })
-        .then(function (data) {
+router.post('/api/restaurants', (req, res) => {
+    var address = req.body.address;
+    yelp.search({ 
+            term: 'food', 
+            location: address,
+            radius_filter: 1000 
+        }).then(function (data) {
             console.dir(data);
             res.send(data);
-        })
-        .catch(function (err) {
+        }).catch(function (err) {
             console.error(err);
         });
 });
