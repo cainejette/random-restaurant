@@ -1,0 +1,16 @@
+.rando {
+  background-color: black;
+  color: white;
+  position: relative;
+  text-transform: lowercase;
+}
+
+body {
+  padding: 10px;
+  background-color: black !important;
+  font-family: 'Open Sans', sans-serif !important;
+}
+
+h1 {
+  font-size: 4em !important;
+}
