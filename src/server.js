@@ -16,7 +16,7 @@ var yelp = new Yelp({
     token_secret: secrets.token_secret
 });
 
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 app.set('port', port);
 app.use(express.static(__dirname + '/app'));
