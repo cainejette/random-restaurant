@@ -26,8 +26,11 @@
         <input name="input" ng-model="address" required>
         <input type="submit" id="submit" value="Submit" />
 
-      <div ng-repeat="restaurant in restaurants">
-        <div>{{ restaurant.name }}</div>
+      </form>
+      <div>
+        <a ng-href={{restaurant.url}} target="_blank">
+          {{ restaurant.name }}
+        </a>
       </div>
     </div>
   </div>
