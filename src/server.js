@@ -4,8 +4,8 @@ const app = express();
 const curl = require('curlrequest');
 const moment = require('moment');
 const Yelp = require('yelp');
-var bodyParser = require("body-parser");
-
+var bodyParser = require('body-parser');
+var NodeGeocoder = require('node-geocoder');
 
 const secrets = require('../secrets.json');
 
@@ -14,6 +14,12 @@ var yelp = new Yelp({
     consumer_secret: secrets.consumer_secret,
     token: secrets.token,
     token_secret: secrets.token_secret
+});
+
+var geocoder = NodeGeocoder({
+  provider: 'google',
+  httpAdapter: 'https',
+  apiKey: secrets.gmaps,
 });
 
 const port = process.env.PORT || 3000;
@@ -36,6 +42,7 @@ router.use((req, res, next) => {
 });
 
 router.post('/api/restaurants', (req, res) => {
+    console.log('searching for restaurants near: ' + req.body.address);
     yelp.search({ 
             category_filter: 'restaurants',
             location: req.body.address,
@@ -45,6 +52,12 @@ router.post('/api/restaurants', (req, res) => {
         }).catch(function (err) {
             console.error(err);
         });
+});
+
+router.post('/api/coordinates', (req, res) => {
+    geocoder.reverse({ lat: req.body.lat, lon: req.body.long })
+        .then(address => res.send(address))
+        .catch(err => console.error(err));
 });
 
 app.use('/', router);

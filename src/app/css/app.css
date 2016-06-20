@@ -25,10 +25,10 @@ form {
 #address {
   color: black !important;
   width: 80%;
-  padding: 20px 5px;
+  padding: 20px 20px;
   text-align: center;
-  margin-top: 50px;
-  margin-bottom: 15px;
+  /*margin-top: 50px;
+  margin-bottom: 15px;*/
 }
 
 #slider {
@@ -67,4 +67,20 @@ a:hover, a:focus {
 
 #blurb, #blurb2 {
   font-size: 5vw;
+}
+
+#input_container { 
+  position:relative; 
+  padding:0;
+  margin:0; 
+}
+
+i { 
+  position:absolute; 
+  bottom:8px; 
+  right:40px;
+  z-index: 10;
+  background-color: black;
+  width: 50px; 
+  cursor: pointer;
 }
