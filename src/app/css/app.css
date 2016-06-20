@@ -24,11 +24,16 @@ form {
 
 #address {
   color: black !important;
-  width: 300px;
+  width: 500px;
   padding: 20px 5px;
   text-align: center;
   margin-top: 50px;
   margin-bottom: 15px;
+}
+
+#slider {
+  width: 500px;
+  margin: 0 auto;
 }
 
 input {
@@ -40,6 +45,7 @@ input {
 a {
     color: white !important;
     text-decoration: none;
+    
 }
 
 a:hover, a:focus {
@@ -52,7 +58,11 @@ a:hover, a:focus {
 }
 
 #result {
-  padding-top: 50px;
+  padding-top: 30px;
   text-align: center;
   font-size: 5em;
+}
+
+#blurb, #blurb2 {
+  font-size: 3rem;
 }

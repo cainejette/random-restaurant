@@ -1,9 +1,9 @@
 angular.module('rando').factory('api', ['$http', '$q', function ($http, $q) {
 
-  const getRestaurants = (address) => {
+  const getRestaurants = (address, radius) => {
     const deferred = $q.defer();
 
-    $http.post('/api/restaurants/', {address: address})
+    $http.post('/api/restaurants/', { address, radius })
       .success(data => deferred.resolve(data))
       .error(err => {
         console.log('Error fetching from: ' + url);

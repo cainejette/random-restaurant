@@ -12,6 +12,9 @@
   <script src="services/api.js"></script>
   <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angularjs-slider/4.0.2/rzslider.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/angularjs-slider/4.0.2/rzslider.min.css"/>
+
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7"
     crossorigin="anonymous">
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
@@ -25,13 +28,23 @@
       <form name="myForm" ng-submit="submit()" >
         <input id="address" name="input" align="center" ng-model="address" placeholder="address" required>
         <br />
+        <div id="slider">
+          <div>within<div>
+          <rzslider rz-slider-model="slider.value"
+                    rz-slider-options="slider.options"></rzslider>
+        </div>
+        <br />
         <input type="submit" id="submit" value="EAT"  />
-
       </form>
       <div id="result">
-        <a ng-href={{restaurant.url}} target="_blank">
-          {{ restaurant.name }}
-        </a>
+        <div ng-if="restaurant != null">
+          <a ng-href={{ restaurant.url }} target="_blank">
+            {{ restaurant.name }}
+          </a>
+          <div id="blurb">({{ restaurant.rating }} stars with {{ restaurant.review_count }} reviews,</div>
+          <div id="blurb2">about {{ distance }}m away)
+
+        </div>
       </div>
     </div>
   </div>

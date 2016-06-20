@@ -1,1 +1,1 @@
-angular.module('rando', []);
+angular.module('rando', ['rzModule']);

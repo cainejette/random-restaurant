@@ -36,12 +36,10 @@ router.use((req, res, next) => {
 });
 
 router.post('/api/restaurants', (req, res) => {
-    var address = req.body.address;
     yelp.search({ 
-            term: 'food', 
-            location: address,
-            radius_filter: 2000,
-            category_filter: 'restaurants'
+            category_filter: 'restaurants',
+            location: req.body.address,
+            radius_filter: req.body.radius,
         }).then(function (data) {
             res.send(data);
         }).catch(function (err) {
