@@ -28,6 +28,7 @@ angular.module('rando').controller('ctrl',
                     api.getAddress(location.coords.latitude, location.coords.longitude).then(address => {
                         $scope.loading = false;
                         $scope.address = address[0].formattedAddress;
+                        console.dir($scope.address);
                     });
                 });
                 

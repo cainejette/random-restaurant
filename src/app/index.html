@@ -30,15 +30,21 @@
     <div ng-controller="ctrl">
       <div class="row">
         <form name="myForm" class="col-sm-12"" ng-submit="submit()" >
-          <div id="input_container">
-            <i ng-if="!loading" class="fa fa-map-marker fa-3x" aria-hidden="true" ng-click="getAddress()"></i>
-            <input id="address" name="input" align="center" ng-model="address" placeholder="address" required>
-            <i ng-if="loading" class="fa fa-cog fa-spin fa-3x fa-fw"></i>
 
+          <div>
+            <i ng-if="!loading" class="fa fa-map-marker fa-3x" aria-hidden="true" ng-click="getAddress()"></i>
+            <i ng-if="loading" class="fa fa-cog fa-spin fa-3x fa-fw"></i>
           </div>
+
           <br />
+          or
+          <br />
+          <br />
+          <input id="address" name="input" align="center" ng-model="address" placeholder="address" required>
+          <br />
+    
           <div id="slider">
-            <div>within<div>
+            <div>and within<div>
             <rzslider rz-slider-model="slider.value"
                       rz-slider-options="slider.options"></rzslider>
           </div>

@@ -33,7 +33,7 @@ form {
 
 #slider {
   width: 80%;
-  margin: 0 auto;
+  margin: 20px auto;
 }
 
 input {
@@ -75,7 +75,15 @@ a:hover, a:focus {
   margin:0; 
 }
 
-i { 
+i {
+  position: aboslute;
+  cursor: pointer;
+}
+/*i {
+  height: 50px;
+}*/
+
+/*i { 
   position:absolute; 
   bottom:8px; 
   right:40px;
@@ -83,4 +91,8 @@ i {
   background-color: black;
   width: 50px; 
   cursor: pointer;
-}
+}*/
+/*
+i {
+  background-color: white;
+}*/
