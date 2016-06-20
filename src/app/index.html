@@ -54,9 +54,10 @@
       </div>
       <div class="row">
         <div ng-if="restaurant != null" id="result" class="col-sm-12" >
-          <a ng-href={{ restaurant.url }} target="_blank">
+          <a ng-href="{{ restaurant.url }}" target="_blank">
             {{ restaurant.name }}
           </a>
+          
           <div id="blurb">({{ restaurant.rating }} stars with {{ restaurant.review_count }} reviews,</div>
           <div id="blurb2">about {{ distance }}m away)
         </div>
