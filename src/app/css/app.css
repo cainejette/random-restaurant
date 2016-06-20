@@ -24,7 +24,7 @@ form {
 
 #address {
   color: black !important;
-  width: 500px;
+  width: 80%;
   padding: 20px 5px;
   text-align: center;
   margin-top: 50px;
@@ -32,20 +32,22 @@ form {
 }
 
 #slider {
-  width: 500px;
+  width: 80%;
   margin: 0 auto;
 }
 
 input {
   color: black !important;
-  width: 100px;
   text-align: center;
+}
+
+#submit {
+  width: 30%;
 }
 
 a {
     color: white !important;
     text-decoration: none;
-    
 }
 
 a:hover, a:focus {
@@ -60,9 +62,9 @@ a:hover, a:focus {
 #result {
   padding-top: 30px;
   text-align: center;
-  font-size: 5em;
+  font-size: 8vw;
 }
 
 #blurb, #blurb2 {
-  font-size: 3rem;
+  font-size: 5vw;
 }

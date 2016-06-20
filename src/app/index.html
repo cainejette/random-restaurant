@@ -24,26 +24,27 @@
 <body>
 
   <div class="rando container-fluid">
-    <div class="row" ng-controller="ctrl">
-      <form name="myForm" ng-submit="submit()" >
-        <input id="address" name="input" align="center" ng-model="address" placeholder="address" required>
-        <br />
-        <div id="slider">
-          <div>within<div>
-          <rzslider rz-slider-model="slider.value"
-                    rz-slider-options="slider.options"></rzslider>
-        </div>
-        <br />
-        <input type="submit" id="submit" value="EAT"  />
-      </form>
-      <div id="result">
-        <div ng-if="restaurant != null">
+    <div ng-controller="ctrl">
+      <div class="row">
+        <form name="myForm" class="col-xl-8"" ng-submit="submit()" >
+          <input id="address" name="input" align="center" ng-model="address" placeholder="address" required>
+          <br />
+          <div id="slider">
+            <div>within<div>
+            <rzslider rz-slider-model="slider.value"
+                      rz-slider-options="slider.options"></rzslider>
+          </div>
+          <br />
+          <input type="submit" id="submit" value="EAT"  />
+        </form>
+      </div>
+      <div class="row">
+        <div ng-if="restaurant != null" id="result" class="col-sm-12" >
           <a ng-href={{ restaurant.url }} target="_blank">
             {{ restaurant.name }}
           </a>
           <div id="blurb">({{ restaurant.rating }} stars with {{ restaurant.review_count }} reviews,</div>
           <div id="blurb2">about {{ distance }}m away)
-
         </div>
       </div>
     </div>
