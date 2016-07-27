@@ -1,1 +1,1 @@
-angular.module('rando', ['rzModule']);
+angular.module('rando', ['rzModule', 'autocomplete']);

@@ -9,6 +9,8 @@
   <script src="https://use.fontawesome.com/07b18254f6.js"></script>
 
   <script src="https://code.angularjs.org/1.2.16/angular.js"></script>
+  <script type="text/javascript" src="autocomplete.js"></script>
+
   <script src="app.js"></script>
   <script src="controllers/ctrl.js"></script>
   <script src="services/api.js"></script>
@@ -48,6 +50,18 @@
             <rzslider rz-slider-model="slider.value"
                       rz-slider-options="slider.options"></rzslider>
           </div>
+          <br />
+
+          <div id="categories">
+            <autocomplete ng-model="choice" data="categories" attr-placeholder="cuisines" on-select="addFilter" />
+          </div>
+
+          <br />
+          <div id="filters" ng-repeat="filter in filters">
+            <div ng-click="removeFilter(filter)">{{ filter }}</div>
+            <br />
+          </div>     
+          
           <br />
           <input type="submit" id="submit" value="EAT"  />
         </form>

@@ -20,6 +20,17 @@ form {
   margin: 0 auto;
   display: block;
   text-align: center;
+  color: white;
+}
+
+ul {
+  cursor: pointer;
+  list-style: none;
+  text-align: center;
+}
+
+#filters {
+  cursor: pointer;
 }
 
 #address {
@@ -27,8 +38,6 @@ form {
   width: 80%;
   padding: 20px 20px;
   text-align: center;
-  /*margin-top: 50px;
-  margin-bottom: 15px;*/
 }
 
 #slider {

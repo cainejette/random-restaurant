@@ -1,9 +1,9 @@
 angular.module('rando').factory('api', ['$http', '$q', function ($http, $q) {
 
-  const getRestaurants = (address, radius) => {
+  const getRestaurants = (address, radius, filters) => {
     const deferred = $q.defer();
-
-    $http.post('/api/restaurants/', { address, radius })
+    console.dir(filters);
+    $http.post('/api/restaurants/', { address, radius, filters })
       .success(data => deferred.resolve(data))
       .error(err => {
         console.log('Error fetching from: ' + url);
@@ -20,7 +20,20 @@ angular.module('rando').factory('api', ['$http', '$q', function ($http, $q) {
       .success(data => deferred.resolve(data))
       .error(err => {
         console.log('Error fetching address for coordinates.');
-        $httpdeferred.reject(err);
+        deferred.reject(err);
+      });
+
+      return deferred.promise;
+  }
+
+  const getCategories = () => {
+    const deferred = $q.defer();
+
+    $http.get('api/categories/')
+      .success(data => deferred.resolve(data))
+      .error(err => {
+        console.log('Error fetching categories.');
+        deferred.reject(err);
       });
 
       return deferred.promise;
@@ -28,6 +41,7 @@ angular.module('rando').factory('api', ['$http', '$q', function ($http, $q) {
 
   return {
     getRestaurants,
-    getAddress
+    getAddress,
+    getCategories
   };
 }]);

@@ -8,6 +8,7 @@ var bodyParser = require('body-parser');
 var NodeGeocoder = require('node-geocoder');
 
 const secrets = require('../secrets.json');
+var categories = require('../categories.json');
 
 var yelp = new Yelp({
     consumer_key: secrets.consumer_key,
@@ -43,8 +44,9 @@ router.use((req, res, next) => {
 
 router.post('/api/restaurants', (req, res) => {
     console.log('searching for restaurants near: ' + req.body.address);
+    var filters = req.body.filters.join();
     yelp.search({ 
-            category_filter: 'restaurants',
+            category_filter: 'restaurants,' + filters,
             location: req.body.address,
             radius_filter: req.body.radius,
         }).then(function (data) {
@@ -59,6 +61,10 @@ router.post('/api/coordinates', (req, res) => {
         .then(address => res.send(address))
         .catch(err => console.error(err));
 });
+
+router.get('/api/categories', (req, res) => {
+    res.send(categories);
+})
 
 app.use('/', router);
 
